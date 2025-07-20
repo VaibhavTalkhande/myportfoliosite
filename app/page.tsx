@@ -1,102 +1,277 @@
 import Image from "next/image";
+import image from "../public/profile.png";
+import stockit from "../public/stockit.png";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-[#1a1b26] text-[#c0caf5] font-mono">
+      {/* Terminal Tab Bar */}
+      <div className="terminal-tabbar overflow-x-auto whitespace-nowrap text-xs sm:text-base">
+        <span className="terminal-tab">portfolio.tsx</span>
+        <span className="terminal-tab inactive">about.md</span>
+        <span className="terminal-tab inactive">projects.json</span>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* NAVBAR */}
+      <nav className="w-full border-b border-[#7aa2f7] bg-[#16161e] sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 flex items-center justify-between h-12 sm:h-14">
+          <div className="flex items-center gap-2">
+            <Image src={image} alt="Logo" width={28} height={28} className="rounded-full border border-[#7aa2f7]" />
+            <span className="font-bold text-sm sm:text-base text-[#7aa2f7]">Vaibhav Talkhande</span>
+          </div>
+          <div className="hidden md:flex gap-4 sm:gap-8 text-[#c0caf5] font-medium text-xs sm:text-base">
+            <a href="#about" className="hover:text-[#9ece6a] transition">About</a>
+            <a href="#projects" className="hover:text-[#9ece6a] transition">Projects</a>
+            <a href="#tech" className="hover:text-[#9ece6a] transition">Tech Stack</a>
+            <a href="#contact" className="hover:text-[#9ece6a] transition">Contact</a>
+          </div>
         </div>
+      </nav>
+
+      <main className="w-full max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-8">
+        {/* HERO SECTION */}
+        <section className="terminal-section flex flex-col-reverse md:flex-row items-center md:items-start gap-6 md:gap-16 mb-10 md:mb-14 terminal-border">
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 text-[#9ece6a] flex items-center justify-center md:justify-start">Vaibhav Talkhande <span className="terminal-cursor" /></h1>
+            <p className="text-base sm:text-lg md:text-xl text-[#bb9af7] mb-4">🚀 Full-stack Developer | MERN Stack | Next.js</p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mb-4">
+              <a href="mailto:vaibhavtalkhande41@gmail.com" className="px-3 sm:px-4 py-2 border border-[#7aa2f7] text-[#7aa2f7] hover:bg-[#16161e] transition rounded text-xs sm:text-sm">Email</a>
+              <a href="https://www.linkedin.com/in/vaibhavtalkhande/" target="_blank" rel="noopener noreferrer" className="px-3 sm:px-4 py-2 border border-[#7aa2f7] text-[#7aa2f7] hover:bg-[#16161e] transition rounded text-xs sm:text-sm">LinkedIn</a>
+              <a href="https://github.com/VaibhavTalkhande" target="_blank" rel="noopener noreferrer" className="px-3 sm:px-4 py-2 border border-[#7aa2f7] text-[#7aa2f7] hover:bg-[#16161e] transition rounded text-xs sm:text-sm">GitHub</a>
+              <a href="tel:+919325625918" className="px-3 sm:px-4 py-2 border border-[#7aa2f7] text-[#7aa2f7] hover:bg-[#16161e] transition rounded text-xs sm:text-sm">+91-9325625918</a>
+            </div>
+          </div>
+          <div className="flex-shrink-0 mb-4 md:mb-0">
+            <Image src={image} alt="Profile photo" width={90} height={90} className="rounded border-2 border-[#7aa2f7] object-cover w-[90px] h-[90px] sm:w-[120px] sm:h-[120px]" priority />
+          </div>
+        </section>
+
+        {/* ABOUT SECTION */}
+        <section id="about" className="terminal-section terminal-border mb-10 md:mb-12">
+          <h2 className="text-lg sm:text-xl font-bold mb-2 text-[#e0af68]">About Me</h2>
+          <p className="text-[#c0caf5] text-sm sm:text-base leading-relaxed">Software developer with hands-on experience building full-stack web applications. Skilled in MERN Stack, Next.js, and integrating third-party APIs. Deployed multiple apps with backends and responsive UI.</p>
+        </section>
+
+        {/* PROJECTS SECTION (moved up) */}
+        <section id="projects" className="terminal-section terminal-border mb-10 md:mb-12">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">My Personal Projects</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-2">
+              <Image src={stockit} alt="Stockit Project Screenshot" width={320} height={180} className="rounded object-cover border border-[#565f89] w-full mb-2" />
+              <h3 className="font-semibold text-base sm:text-lg flex items-center gap-2 text-[#7aa2f7]">🔹 <a href="https://github.com/VaibhavTalkhande/stockit" target="_blank" rel="noopener noreferrer" className="hover:underline">Stockit</a></h3>
+              <span className="text-xs text-[#e0af68]">Retail Management System</span>
+              <p className="text-xs sm:text-sm text-[#c0caf5]">Inventory, sales, billing, payment gateway, analytics & Gemini-powered AI insights</p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Next.js</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">MongoDB</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Electron.js</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Stripe</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Node.js</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Express</span>
+              </div>
+              <div className="flex gap-2 mt-2">
+                <a href="https://github.com/VaibhavTalkhande/stockit" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#bb9af7] text-[#bb9af7] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">GitHub</a>
+                <a href="https://stockit-wine.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#9ece6a] text-[#9ece6a] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">Live</a>
+              </div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-2">
+              <Image
+                src="/shortsenital.png"
+                alt="ShortSentinel Project Screenshot"
+                width={320}
+                height={180}
+                className="rounded object-cover border border-[#565f89] w-full mb-2 "
+              />
+              <h3 className="font-semibold text-base sm:text-lg flex items-center gap-2 text-[#7aa2f7]">🔹 <a href="https://github.com/VaibhavTalkhande/shortsentinel" target="_blank" rel="noopener noreferrer" className="hover:underline">ShortSentinel</a></h3>
+              <span className="text-xs text-[#e0af68]">Secure URL Shortener</span>
+              <p className="text-xs sm:text-sm text-[#c0caf5]">URL analytics, geolocation tracking, exports, real-time graphs, dashboard, and more.</p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">React</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Tailwind</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">PostgreSQL</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Prisma</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Socket.io</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Electron.js</span>
+              </div>
+              <div className="flex gap-2 mt-2">
+                <a href="https://github.com/VaibhavTalkhande/shortsentinel" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#bb9af7] text-[#bb9af7] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">GitHub</a>
+                <a href="https://shortsentinel-1.onrender.com" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#9ece6a] text-[#9ece6a] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">Live</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* My Work SECTION */}
+        {/* <section className="terminal-section terminal-border mb-10 md:mb-12">
+
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">My Work</h2>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
+            <Image src={stockit} alt="Stockit Project Screenshot" width={320} height={180} className="rounded object-cover border border-[#565f89] w-full max-w-xs md:max-w-[320px]" />
+            <div className="flex-1 w-full">
+              <h3 className="font-semibold text-base sm:text-lg mb-1 text-[#7aa2f7]">Stockit</h3>
+              <p className="text-[#c0caf5] mb-2 text-sm sm:text-base">Retail Management System: Inventory, sales, billing, payment gateway, analytics & Gemini-powered AI insights.</p>
+              <div className="flex flex-wrap gap-2 mb-2">
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Next.js</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">MongoDB</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Electron.js</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Stripe</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Node.js</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Express</span>
+              </div>
+              <div className="flex gap-2 mt-2">
+                <a href="https://github.com/VaibhavTalkhande/stockit" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#bb9af7] text-[#bb9af7] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">GitHub</a>
+                <a href="https://stockit-wine.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#9ece6a] text-[#9ece6a] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">Live</a>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center mt-8">
+            <Image
+              src="/shortsenital.png"
+              alt="ShortSentinel Project Screenshot"
+              width={320}
+              height={180}
+              className="rounded object-cover border border-[#565f89] w-full max-w-xs md:max-w-[320px]"
+            />
+            <div className="flex-1 w-full">
+              <h3 className="font-semibold text-base sm:text-lg mb-1 text-[#7aa2f7]">ShortSentinel</h3>
+              <p className="text-[#c0caf5] mb-2 text-sm sm:text-base">Secure URL Shortener with realtime analytics and dashboard.</p>
+              <div className="flex flex-wrap gap-2 mb-2">
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">React</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Tailwind</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">PostgreSQL</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Prisma</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Socket.io</span>
+                <span className="terminal-highlight text-xs px-2 py-0.5 rounded">Electron.js</span>
+              </div>
+              <div className="flex gap-2 mt-2">
+                <a href="https://github.com/VaibhavTalkhande/shortsentinel" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#bb9af7] text-[#bb9af7] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">GitHub</a>
+                <a href="https://shortsentinel.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-2 border border-[#9ece6a] text-[#9ece6a] hover:bg-[#24283b] transition rounded text-xs sm:text-sm">Live</a>
+              </div>
+            </div>
+          </div>
+        </section> */}
+
+        {/* EXPERIENCE SECTION */}
+        <section className="terminal-section terminal-border mb-10 md:mb-12">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Experience</h2>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              <div>
+                <span className="font-semibold text-base sm:text-lg text-[#7aa2f7]">Web Developer Intern</span>
+                <span className="ml-2 text-xs sm:text-sm bg-[#16161e] text-[#e0af68] px-2 py-0.5 rounded">QuickFusion Innovations</span>
+              </div>
+              <span className="text-xs sm:text-sm text-[#565f89] mt-1 md:mt-0">Jan 2025 – Feb 2025</span>
+            </div>
+            <ul className="list-disc list-inside text-[#c0caf5] text-xs sm:text-sm space-y-1 ml-4">
+              <li>Developed 2+ responsive client websites using <b>React.js</b> and <b>Tailwind CSS</b></li>
+              <li>Revamped UI/UX for faster load time and better SEO</li>
+              <li>Delivered site that helped company attract clients</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* TECH STACK SECTION */}
+        <section id="tech" className="terminal-section terminal-border mb-10 md:mb-12">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Tech Stack</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-3 sm:p-4">
+              <div className="font-semibold mb-1 text-[#bb9af7]">Languages</div>
+              <div className="flex flex-wrap gap-2"> <span className="terminal-accent px-2 py-0.5 rounded">JavaScript</span> <span className="terminal-accent px-2 py-0.5 rounded">TypeScript</span> <span className="terminal-accent px-2 py-0.5 rounded">Java</span> </div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-3 sm:p-4">
+              <div className="font-semibold mb-1 text-[#bb9af7]">Frontend</div>
+              <div className="flex flex-wrap gap-2"> <span className="terminal-accent px-2 py-0.5 rounded">Next.js</span> <span className="terminal-accent px-2 py-0.5 rounded">React.js</span> <span className="terminal-accent px-2 py-0.5 rounded">Redux</span> <span className="terminal-accent px-2 py-0.5 rounded">Tailwind CSS</span> <span className="terminal-accent px-2 py-0.5 rounded">Material-UI</span> <span className="terminal-accent px-2 py-0.5 rounded">shadcn/ui</span> <span className="terminal-accent px-2 py-0.5 rounded">HTML</span> <span className="terminal-accent px-2 py-0.5 rounded">CSS</span> </div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-3 sm:p-4">
+              <div className="font-semibold mb-1 text-[#bb9af7]">Backend</div>
+              <div className="flex flex-wrap gap-2"> <span className="terminal-accent px-2 py-0.5 rounded">Node.js</span> <span className="terminal-accent px-2 py-0.5 rounded">Express.js</span> <span className="terminal-accent px-2 py-0.5 rounded">Prisma</span> <span className="terminal-accent px-2 py-0.5 rounded">Zod</span> </div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-3 sm:p-4">
+              <div className="font-semibold mb-1 text-[#bb9af7]">Database</div>
+              <div className="flex flex-wrap gap-2"> <span className="terminal-accent px-2 py-0.5 rounded">MongoDB</span> <span className="terminal-accent px-2 py-0.5 rounded">PostgreSQL</span> <span className="terminal-accent px-2 py-0.5 rounded">SQL</span> </div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-3 sm:p-4">
+              <div className="font-semibold mb-1 text-[#bb9af7]">Other Tools</div>
+              <div className="flex flex-wrap gap-2"> <span className="terminal-accent px-2 py-0.5 rounded">Docker</span> <span className="terminal-accent px-2 py-0.5 rounded">Git</span> <span className="terminal-accent px-2 py-0.5 rounded">Postman</span> <span className="terminal-accent px-2 py-0.5 rounded">Linux</span> </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ACHIEVEMENTS & CLUBS SECTION */}
+        <section className="terminal-section terminal-border mb-10 md:mb-12">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Achievements & Clubs</h2>
+          <div className="flex flex-col gap-2">
+            <ul className="list-disc list-inside text-[#c0caf5] text-xs sm:text-sm space-y-2">
+              <li><b className="text-[#bb9af7]">Technical Head</b>, GFG GHRCEMN Club<br/>Built & maintained club website using React, led technical events</li>
+              <li><b className="text-[#bb9af7]">Web Developer</b>, GDSC GHRIET<br/>Worked on club website using React + TypeScript</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* EDUCATION SECTION */}
+        <section className="terminal-section terminal-border mb-10 md:mb-12">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Education</h2>
+          <div className="flex flex-col gap-4">
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-1">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <span className="font-semibold text-[#bb9af7] text-sm sm:text-base">GH Raisoni College of Engineering, Nagpur</span>
+                <span className="text-xs sm:text-sm text-[#565f89] mt-1 sm:mt-0">2022–2026</span>
+              </div>
+              <div className="text-[#c0caf5] text-xs sm:text-sm">B.Tech in Computer Science <span className="ml-2 font-semibold text-[#e0af68]">CGPA: 8.88</span></div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-1">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <span className="font-semibold text-[#bb9af7] text-sm sm:text-base">The Royal Gondwana Public School, Nagpur</span>
+                <span className="text-xs sm:text-sm text-[#565f89] mt-1 sm:mt-0">2020–2021</span>
+              </div>
+              <div className="text-[#c0caf5] text-xs sm:text-sm">CBSE 12th – 86.6%</div>
+            </div>
+            <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-1">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <span className="font-semibold text-[#bb9af7] text-sm sm:text-base">Vimaltai Tidke Convent Atrey Layout, Nagpur</span>
+                <span className="text-xs sm:text-sm text-[#565f89] mt-1 sm:mt-0">2018–2019</span>
+              </div>
+              <div className="text-[#c0caf5] text-xs sm:text-sm">CBSE 10th – 90%</div>
+            </div>
+          </div>
+        </section>
+
+        {/* GITHUB STATS SECTION */}
+        <section className="terminal-section terminal-border mb-10 md:mb-12 text-center">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">GitHub Stats</h2>
+          <div className="flex flex-wrap justify-center gap-4 mb-4">
+            <img src="https://github-readme-stats.vercel.app/api?username=VaibhavTalkhande&theme=radical&hide_border=false&include_all_commits=true&count_private=true" width="340" alt="GitHub Stats" className="rounded shadow w-full max-w-xs sm:max-w-sm md:max-w-md" />
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=VaibhavTalkhande&theme=radical&hide_border=false" width="340" alt="GitHub Streak" className="rounded shadow w-full max-w-xs sm:max-w-sm md:max-w-md" />
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VaibhavTalkhande&theme=radical&layout=compact&hide_border=false" width="340" alt="Top Languages" className="rounded shadow w-full max-w-xs sm:max-w-sm md:max-w-md" />
+            <img src="https://github-profile-trophy.vercel.app/?username=VaibhavTalkhande&theme=radical&margin-w=5" width="340" alt="Trophies" className="rounded shadow w-full max-w-xs sm:max-w-sm md:max-w-md" />
+          </div>
+        </section>
+
+        {/* CONTACT SECTION */}
+        <section id="contact" className="terminal-section terminal-border mb-8 text-center">
+          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Connect with Me</h2>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
+            <a href="https://www.linkedin.com/in/vaibhavtalkhande/" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+            <a href="https://github.com/VaibhavTalkhande" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+            <a href="https://twitter.com/VaibhavT27" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" /></a>
+            <a href="https://instagram.com/vaibhavtalkhande" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
+            <a href="https://twitch.tv/vaibhavtalkhande" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Twitch-%239146FF.svg?style=for-the-badge&logo=twitch&logoColor=white" alt="Twitch" /></a>
+            <a href="https://discord.gg/VaibhavTalkhande#2414" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Discord-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+          </div>
+          <div className="flex justify-center">
+            <img src="https://visitcount.itsvg.in/api?id=VaibhavTalkhande&icon=0&color=1" alt="Profile Visit Count" className="w-32 sm:w-40" />
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* FOOTER */}
+      <footer className="w-full bg-[#16161e] border-t border-[#7aa2f7] py-4 sm:py-6 mt-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[#565f89] text-xs sm:text-sm">
+          <span>© {new Date().getFullYear()} Vaibhav Talkhande. All rights reserved.</span>
+          <span>Built with Next.js & Tailwind CSS</span>
+        </div>
       </footer>
     </div>
   );
