@@ -1,8 +1,12 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import image from "../public/profile.png";
 import stockit from "../public/stockit.png";
+import shortsentinel from "../public/shortsentinel.png";
 
 export default function Home() {
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <div className="min-h-screen bg-[#1a1b26] text-[#c0caf5] font-mono">
       {/* Terminal Tab Bar */}
@@ -14,17 +18,61 @@ export default function Home() {
 
       {/* NAVBAR */}
       <nav className="w-full border-b border-[#7aa2f7] bg-[#16161e] sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 flex items-center justify-between h-12 sm:h-14">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 flex items-center justify-between h-12 sm:h-14 relative">
           <div className="flex items-center gap-2">
             <Image src={image} alt="Logo" width={28} height={28} className="rounded-full border border-[#7aa2f7]" />
             <span className="font-bold text-sm sm:text-base text-[#7aa2f7]">Vaibhav Talkhande</span>
           </div>
+          {/* Desktop Nav */}
           <div className="hidden md:flex gap-4 sm:gap-8 text-[#c0caf5] font-medium text-xs sm:text-base">
             <a href="#about" className="hover:text-[#9ece6a] transition">About</a>
             <a href="#projects" className="hover:text-[#9ece6a] transition">Projects</a>
+            <a href="#experience" className="hover:text-[#9ece6a] transition">Experience</a>
             <a href="#tech" className="hover:text-[#9ece6a] transition">Tech Stack</a>
+            <a href="#education" className="hover:text-[#9ece6a] transition">Education</a>
+            <a href="#achievements" className="hover:text-[#9ece6a] transition">Achievements</a>
             <a href="#contact" className="hover:text-[#9ece6a] transition">Contact</a>
           </div>
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden flex items-center px-3 py-2 focus:outline-none"
+            aria-label={navOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={navOpen}
+            onClick={() => setNavOpen((v) => !v)}
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <svg
+              className="w-7 h-7 text-[#7aa2f7] transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {navOpen ? (
+                // X icon
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                // Hamburger icon
+                <>
+                  <line x1="4" y1="7" x2="20" y2="7" strokeWidth={2} strokeLinecap="round" />
+                  <line x1="4" y1="12" x2="20" y2="12" strokeWidth={2} strokeLinecap="round" />
+                  <line x1="4" y1="17" x2="20" y2="17" strokeWidth={2} strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+          {/* Mobile Nav Dropdown */}
+          {navOpen && (
+            <div className="absolute top-12 left-0 w-full bg-[#16161e] border-b border-[#7aa2f7] flex flex-col items-center gap-2 py-4 z-50 animate-fade-in">
+              <a href="#about" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>About</a>
+              <a href="#projects" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>Projects</a>
+              <a href="#experience" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>Experience</a>
+              <a href="#tech" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>Tech Stack</a>
+              <a href="#education" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>Education</a>
+              <a href="#achievements" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>Achievements</a>
+              <a href="#contact" className="py-2 w-full text-center hover:text-[#9ece6a] transition" onClick={() => setNavOpen(false)}>Contact</a>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -152,7 +200,7 @@ export default function Home() {
         </section> */}
 
         {/* EXPERIENCE SECTION */}
-        <section className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="experience" className="terminal-section terminal-border mb-10 md:mb-12">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Experience</h2>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
@@ -198,7 +246,7 @@ export default function Home() {
         </section>
 
         {/* ACHIEVEMENTS & CLUBS SECTION */}
-        <section className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="achievements" className="terminal-section terminal-border mb-10 md:mb-12">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Achievements & Clubs</h2>
           <div className="flex flex-col gap-2">
             <ul className="list-disc list-inside text-[#c0caf5] text-xs sm:text-sm space-y-2">
@@ -209,7 +257,7 @@ export default function Home() {
         </section>
 
         {/* EDUCATION SECTION */}
-        <section className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="education" className="terminal-section terminal-border mb-10 md:mb-12">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Education</h2>
           <div className="flex flex-col gap-4">
             <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-1">
