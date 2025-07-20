@@ -248,29 +248,15 @@ export default function Home() {
             <img src="https://github-profile-trophy.vercel.app/?username=VaibhavTalkhande&theme=radical&margin-w=5" width="340" alt="Trophies" className="rounded shadow w-full max-w-xs sm:max-w-sm md:max-w-md" />
           </div>
         </section>
-
-        {/* CONTACT SECTION */}
-        <section id="contact" className="terminal-section terminal-border mb-8 text-center">
-          <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Connect with Me</h2>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
-            <a href="https://www.linkedin.com/in/vaibhavtalkhande/" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-            <a href="https://github.com/VaibhavTalkhande" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
-            <a href="https://twitter.com/VaibhavT27" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" /></a>
-            <a href="https://instagram.com/vaibhavtalkhande" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
-            <a href="https://twitch.tv/vaibhavtalkhande" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Twitch-%239146FF.svg?style=for-the-badge&logo=twitch&logoColor=white" alt="Twitch" /></a>
-            <a href="https://discord.gg/VaibhavTalkhande#2414" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="https://img.shields.io/badge/Discord-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-          </div>
-          <div className="flex justify-center">
-            <img src="https://visitcount.itsvg.in/api?id=VaibhavTalkhande&icon=0&color=1" alt="Profile Visit Count" className="w-32 sm:w-40" />
-          </div>
-        </section>
       </main>
+      
+
 
       {/* FOOTER */}
       <footer className="w-full bg-[#16161e] border-t border-[#7aa2f7] py-4 sm:py-6 mt-8">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[#565f89] text-xs sm:text-sm">
-          <span>© {new Date().getFullYear()} Vaibhav Talkhande. All rights reserved.</span>
-          <span>Built with Next.js & Tailwind CSS</span>
+          <span>© {new Date().getFullYear()} Vaibhav Talkhande.</span>
+          <span>vaibhavtalkhande41@gmail.com</span>
         </div>
       </footer>
     </div>
