@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import image from "../public/profile.png";
 import stockit from "../public/stockit.png";
@@ -7,13 +7,39 @@ import shortsentinel from "../public/shortsentinel.png";
 
 export default function Home() {
   const [navOpen, setNavOpen] = useState(false);
+  const tabs = [
+    { id: "about", label: "portfolio.tsx" },
+    // Only one tab for About/Portfolio
+  ];
+  // Remove scroll spy and activeTab logic
+  const handleTabClick = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#1a1b26] text-[#c0caf5] font-mono">
       {/* Terminal Tab Bar */}
-      <div className="terminal-tabbar overflow-x-auto whitespace-nowrap text-xs sm:text-base">
-        <span className="terminal-tab">portfolio.tsx</span>
-        <span className="terminal-tab inactive">about.md</span>
-        <span className="terminal-tab inactive">projects.json</span>
+      <div
+        className="terminal-tabbar overflow-x-auto whitespace-nowrap text-xs sm:text-base flex gap-2 sm:gap-4 px-2 sm:px-4 hidden md:flex"
+        role="tablist"
+        aria-label="Section navigation"
+      >
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-controls={tab.id}
+            tabIndex={0}
+            onClick={() => handleTabClick(tab.id)}
+            className={`terminal-tab cursor-pointer px-3 py-1 min-w-[100px] sm:min-w-[120px]`}
+            style={{ outline: "none" }}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
       {/* NAVBAR */}
@@ -25,13 +51,12 @@ export default function Home() {
           </div>
           {/* Desktop Nav */}
           <div className="hidden md:flex gap-4 sm:gap-8 text-[#c0caf5] font-medium text-xs sm:text-base">
-            <a href="#about" className="hover:text-[#9ece6a] transition">About</a>
-            <a href="#projects" className="hover:text-[#9ece6a] transition">Projects</a>
-            <a href="#experience" className="hover:text-[#9ece6a] transition">Experience</a>
-            <a href="#tech" className="hover:text-[#9ece6a] transition">Tech Stack</a>
-            <a href="#education" className="hover:text-[#9ece6a] transition">Education</a>
-            <a href="#achievements" className="hover:text-[#9ece6a] transition">Achievements</a>
-            <a href="#contact" className="hover:text-[#9ece6a] transition">Contact</a>
+            <a href="#about" className="hover:text-[#9ece6a] transition cursor-pointer" onClick={() => setNavOpen(false)}>About</a>
+            <a href="#projects" className="hover:text-[#9ece6a] transition cursor-pointer" onClick={() => setNavOpen(false)}>Projects</a>
+            <a href="#experience" className="hover:text-[#9ece6a] transition cursor-pointer" onClick={() => setNavOpen(false)}>Experience</a>
+            <a href="#tech" className="hover:text-[#9ece6a] transition cursor-pointer" onClick={() => setNavOpen(false)}>Tech Stack</a>
+            <a href="#education" className="hover:text-[#9ece6a] transition cursor-pointer" onClick={() => setNavOpen(false)}>Education</a>
+            <a href="#achievements" className="hover:text-[#9ece6a] transition cursor-pointer" onClick={() => setNavOpen(false)}>Achievements</a>
           </div>
           {/* Mobile Hamburger */}
           <button
@@ -95,13 +120,13 @@ export default function Home() {
         </section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="about" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-2 text-[#e0af68]">About Me</h2>
           <p className="text-[#c0caf5] text-sm sm:text-base leading-relaxed">Software developer with hands-on experience building full-stack web applications. Skilled in MERN Stack, Next.js, and integrating third-party APIs. Deployed multiple apps with backends and responsive UI.</p>
         </section>
 
         {/* PROJECTS SECTION (moved up) */}
-        <section id="projects" className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="projects" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">My Personal Projects</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-2">
@@ -200,7 +225,7 @@ export default function Home() {
         </section> */}
 
         {/* EXPERIENCE SECTION */}
-        <section id="experience" className="terminal-section terminal-border mb-10 md:mb-12">
+        {/* <section id="experience" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Experience</h2>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
@@ -216,10 +241,10 @@ export default function Home() {
               <li>Delivered site that helped company attract clients</li>
             </ul>
           </div>
-        </section>
+        </section> */}
 
         {/* TECH STACK SECTION */}
-        <section id="tech" className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="tech" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Tech Stack</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="bg-[#16161e] border border-[#565f89] rounded p-3 sm:p-4">
@@ -246,7 +271,7 @@ export default function Home() {
         </section>
 
         {/* ACHIEVEMENTS & CLUBS SECTION */}
-        <section id="achievements" className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="achievements" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Achievements & Clubs</h2>
           <div className="flex flex-col gap-2">
             <ul className="list-disc list-inside text-[#c0caf5] text-xs sm:text-sm space-y-2">
@@ -257,7 +282,7 @@ export default function Home() {
         </section>
 
         {/* EDUCATION SECTION */}
-        <section id="education" className="terminal-section terminal-border mb-10 md:mb-12">
+        <section id="education" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Education</h2>
           <div className="flex flex-col gap-4">
             <div className="bg-[#16161e] border border-[#565f89] rounded p-4 sm:p-5 flex flex-col gap-1">
@@ -285,7 +310,7 @@ export default function Home() {
         </section>
 
         {/* GITHUB STATS SECTION */}
-        <section className="terminal-section terminal-border mb-10 md:mb-12 text-center">
+        <section id="contact" className="terminal-section terminal-border mb-8 text-center scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">GitHub Stats</h2>
           <div className="flex flex-wrap justify-center gap-4 mb-4">
             <img src="https://github-readme-stats.vercel.app/api?username=VaibhavTalkhande&theme=radical&hide_border=false&include_all_commits=true&count_private=true" width="340" alt="GitHub Stats" className="rounded shadow w-full max-w-xs sm:max-w-sm md:max-w-md" />
@@ -307,6 +332,12 @@ export default function Home() {
           <span>vaibhavtalkhande41@gmail.com</span>
         </div>
       </footer>
+      {/* Add global style for smooth scrolling */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
     </div>
   );
 }
