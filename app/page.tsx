@@ -225,7 +225,7 @@ export default function Home() {
         </section> */}
 
         {/* EXPERIENCE SECTION */}
-        {/* <section id="experience" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
+        <section id="experience" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
           <h2 className="text-lg sm:text-xl font-bold mb-4 text-[#e0af68]">Experience</h2>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
@@ -241,7 +241,7 @@ export default function Home() {
               <li>Delivered site that helped company attract clients</li>
             </ul>
           </div>
-        </section> */}
+        </section>
 
         {/* TECH STACK SECTION */}
         <section id="tech" className="terminal-section terminal-border mb-10 md:mb-12 scroll-mt-20">
